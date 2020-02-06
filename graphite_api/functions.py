@@ -1562,7 +1562,7 @@ def perSecond(requestContext, seriesList, maxValue=None):
 
             diff = val - prev
             if diff >= 0:
-                newValues.append(diff / step)
+                newValues.append(safeDiv(diff, step))
             elif maxValue is not None and maxValue >= val:
                 newValues.append(((maxValue - prev) + val + 1) / step)
             else:
